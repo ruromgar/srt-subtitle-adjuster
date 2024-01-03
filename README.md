@@ -17,6 +17,8 @@ Options:
 Example:
 
 ```bash
-python srt_adjuster.py example.srt -t +00:00:05,000 -o adjusted_example.srt
-python srt_adjuster.py example.srt -t -00:00:02,500 -o adjusted_example.srt
+python srt_adjuster.py example.srt -t A00:00:05,000 -o adjusted_example.srt
+python srt_adjuster.py example.srt -t D00:00:02,500 -o adjusted_example.srt
 ```
+
+Full tutorial [here](https://python.plainenglish.io/how-to-synchronize-your-subtitle-files-with-python-5866ff58bc6c), but the code is pretty self-explanatory :) feel free to pass by and clap or something if you feel like it, tho.
