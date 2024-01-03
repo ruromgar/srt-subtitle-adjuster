@@ -10,7 +10,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Adjust the timing of subtitles in an SRT file.")
     parser.add_argument('file', type=str, help="Path to the SRT file.")
     parser.add_argument('-t', '--time', type=str, required=True,
-                        help="Time adjustment in format [+/-]HH:MM:SS,MS or [+/-]SS,MS")
+                        help="Time adjustment in format [A/D]HH:MM:SS,MS or [A/D]SS,MS. A is for advance, D is for delay.")
     parser.add_argument('-o', '--output', type=str,
                         help="Output file name. If not specified, overwrite the original file.")
 
@@ -68,8 +68,8 @@ def calculate_adjustment_milliseconds(adjustment_str):
     Convert the adjustment string to milliseconds.
     """
     sign = 1
-    if adjustment_str.startswith(('+', '-')):
-        sign = 1 if adjustment_str[0] == '+' else -1
+    if adjustment_str.startswith(('A', 'D')):
+        sign = 1 if adjustment_str[0] == 'A' else -1
         adjustment_str = adjustment_str[1:]
 
     hours, minutes, seconds, milliseconds = 0, 0, 0, 0
